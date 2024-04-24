@@ -1,12 +1,15 @@
 {
-  "name": "nom_du_projet",
+  "name": "graphql-cours-efrei-movie",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "start:postgres": "export DBMS=postgres; docker-compose --env-file ./.env -f ./docker/docker-compose-postgres.yml up -d; npx prisma db push --force-reset --accept-data-loss; npm run dev",
+    "start:postgres2": "export DBMS=postgres; docker-compose --env-file ./.env -f ./docker/docker-compose-postgres.yml up -d; npx prisma db push; npm run dev",
+    "start:postgres3": "export DBMS=postgres; docker-compose --env-file ./.env -f ./docker/docker-compose-postgres.yml up -d"
   },
   "dependencies": {
     "react": "^18",
